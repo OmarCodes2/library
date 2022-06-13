@@ -1,0 +1,131 @@
+/*
+MEYER RESET
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*
+Header
+*/
+.header {
+    width: 100vw;
+    height: 10vh;
+
+    background-color: black;
+    color: white;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header > div {
+    margin: 5vw;
+}
+
+/*
+Grid
+*/
+
+.add {
+    margin: 5vh;
+    height: 30vh;
+    width: 20vh;
+
+    border: 0.5vh solid black;
+    border-radius: 2vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.add:hover {
+    background-color: rgb(207, 206, 206);
+    cursor: pointer;
+}
+.plus {
+    color: gray;
+    font-size: 10vh;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border: 1px solid black;
+    border-radius:10px;
+    z-index: 10;
+    background-color: white;
+    width: 40vw;
+    transition: 200ms ease-in-out;
+}
+
+.modal.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+.close-button {
+    cursor: pointer;
+    border: none;
+    background-color: none;
+    font-weight: bold;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    pointer-events: none;
+    transition: 200ms ease-in-out;
+}
+
+#overlay.active {
+    opacity: 0.25;
+    pointer-events: all;
+}
