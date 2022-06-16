@@ -18,6 +18,7 @@
         <div class="add">
             <div class="plus">+</div>
         </div>
+
     </div>
 
     <div class="modal" id="modal">
@@ -27,15 +28,17 @@
         </div>
 
         <form class="modal-form">
-            <input type="text" id="book-title" placeholder="Title" required>
-            <input type="text" id="author" placeholder = "Author" required>
+            <input type="text" id="book-title" class ="empty" placeholder="Title" required>
+            <input type="text" id="author" class ="empty" placeholder = "Author" required>
 
             <div class="pages">
-                <input type="number" id="pages-read" name="pages-read" min="1" required>
-                <input type="number" id="pages-total" name="pages-total" min="1" required>
+                <input type="number" class ="empty" id="pages-total" name="pages-total" min="1" required>
             </div>
 
-            <input class="button" type="submit" value="Submit" disabled>
+            <label for="read"> Have you read this?</label>
+            <input type="checkbox" id="read" name="read"  value="yes"><br><br>
+
+            <input class="button" type="button" value="Submit" >
 
         </form>
 
