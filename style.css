@@ -352,6 +352,20 @@ input[type=text]:focus {
     border: none;
     background-color: rgb(220, 220, 220);
 }
+
+.delete-button{
+    background-color: white; 
+    height: 5vh;
+    width: 50%;
+    border-radius: 2vw;
+    background-color: rgb(171, 159, 213);
+    color: white; 
+}
+.delete-button:hover {
+    background-color: rgb(198, 185, 244);
+    color: white;
+}
+
 #overlay {
     position: fixed;
     opacity: 0;

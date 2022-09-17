@@ -86,7 +86,7 @@ function draw(){
         const pages = document.createElement('div');
         const read = document.createElement('div');
         const del = document.createElement('button');
-        
+        del.classList.add("delete-button");
         read.dataset.status = index;
         del.dataset.pos = index;
         del.addEventListener('click',()=>{
