@@ -21,6 +21,158 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+input,
+label,
+select,
+button,
+textarea
+{
+	margin:0;
+	border:0;
+	padding:0;
+	display:inline-block;
+	vertical-align:middle;
+	white-space:normal;
+	background:none;
+	line-height:1;
+	
+	/* Browsers have different default form fonts */
+	font-size:13px;
+	font-family:Arial;
+}
+
+/* Remove the stupid outer glow in Webkit */
+input:focus
+{
+	outline:0;
+}
+
+/* Box Sizing Reset
+-----------------------------------------------*/
+
+/* All of our custom controls should be what we expect them to be */
+input,
+textarea
+{
+	-webkit-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	box-sizing:content-box;
+}
+
+/* These elements are usually rendered a certain way by the browser */
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+input[type=checkbox],
+input[type=radio],
+select
+{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+/* Text Inputs
+-----------------------------------------------*/
+
+input[type=date],
+input[type=datetime],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=range],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week]
+{
+}
+
+/* Button Controls
+-----------------------------------------------*/
+
+input[type=checkbox],
+input[type=radio]
+{
+	width:13px;
+	height:13px;
+}
+
+/* File Uploads
+-----------------------------------------------*/
+
+input[type=file]
+{
+
+}
+
+/* Search Input
+-----------------------------------------------*/
+
+/* Make webkit render the search input like a normal text field */
+input[type=search]
+{
+	-webkit-appearance:textfield;
+	-webkit-box-sizing:content-box;
+}
+
+/* Turn off the recent search for webkit. It adds about 15px padding on the left */
+::-webkit-search-decoration
+{
+	display:none;
+}
+
+/* Buttons
+-----------------------------------------------*/
+
+button,
+input[type="reset"],
+input[type="button"],
+input[type="submit"]
+{
+	/* Fix IE7 display bug */
+	overflow:visible;
+	width:auto;
+}
+
+/* IE8 and FF freak out if this rule is within another selector */
+::-webkit-file-upload-button
+{	
+	padding:0;
+	border:0;
+	background:none;
+}
+
+/* Textarea
+-----------------------------------------------*/
+
+textarea 
+{
+	/* Move the label to the top */
+	vertical-align:top;
+	
+	/* Turn off scroll bars in IE unless needed */
+	overflow:auto;
+}
+
+/* Selects
+-----------------------------------------------*/
+
+select
+{
+
+}
+
+select[multiple] 
+{
+	/* Move the label to the top */
+	vertical-align:top;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
@@ -45,15 +197,16 @@ table {
 	border-spacing: 0;
 }
 
-
+html{
+    font-family: 'Lato', sans-serif;
+}
 /*
 Header
 */
 .header {
     width: 100vw;
-    height: 10vh;
-
-    background-color: black;
+    height: 12vh;
+    background-color: rgb(171, 159, 213);
     color: white;
     
     display: flex;
@@ -61,15 +214,18 @@ Header
     justify-content: space-between;
 }
 
+
 .header > div {
     margin: 5vw;
+    font-size: 3em;
+    font-weight: 400;
 }
 
 /*
 Grid
 */
 .container {
-    margin: 2vw;
+    margin: 5vw;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     
@@ -78,12 +234,12 @@ Grid
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: start;
-    gap: 4vh;
+    justify-content: space-around;
+    gap: 1vh;
     height: 30vh;
     width: 20vh;
 
-    border: 0.5vh solid black;
+    box-shadow: 0.2vw 0.2vw 0.2vw 0.2vw rgb(234, 231, 231);
     border-radius: 2vh;
 
     text-align: center;
@@ -92,7 +248,7 @@ Grid
     height: 30vh;
     width: 20vh;
 
-    border: 0.5vh solid black;
+    box-shadow: 0.2vw 0.2vw 0.2vw 0.2vw rgb(234, 231, 231);
     border-radius: 2vh;
 
     display: flex;
@@ -109,16 +265,27 @@ Grid
 }
 
 .modal {
+    padding: 1vw;
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%) scale(0);
-    border: 1px solid black;
     border-radius:10px;
     z-index: 10;
     background-color: white;
-    width: 40vw;
+    width: 20vw;
+    height: 40vh;
     transition: 200ms ease-in-out;
+}
+.modal-header{
+    margin-bottom: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 2em;
+    margin-left: 1vw;
 }
 
 .modal.active{
@@ -127,10 +294,64 @@ Grid
 .close-button {
     cursor: pointer;
     border: none;
-    background-color: none;
+    background-color: white;
+    font-size: 2vw;
     font-weight: bold;
 }
 
+.modal-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2vh;
+}
+#book-title{
+    height: 5vh;
+    border-radius: 1.5vw;
+    padding-left: 1vw;
+    width: 95%;
+    border: none;
+    background-color: rgb(220, 220, 220);
+}
+
+#author{
+    height: 5vh;
+    border-radius: 1.5vw;
+    padding-left: 1vw;
+    width: 95%;
+    border: none;
+    background-color: rgb(220, 220, 220);
+}
+
+input[type=text]:focus {
+    background-color: rgb(168, 170, 170);
+  }
+  
+.read{
+    padding-left: 0.5vw;
+}
+
+.button {
+    background-color: white; 
+    height: 5vh;
+    border-radius: 2vw;
+    background-color: rgb(171, 159, 213);
+    color: white;
+}
+  
+.button:hover {
+    background-color: rgb(198, 185, 244);
+    color: white;
+}
+
+#pages-total{
+    height: 5vh;
+    border-radius: 1.5vw;
+    padding-left: 1vw;
+    width: 95%;
+    border: none;
+    background-color: rgb(220, 220, 220);
+}
 #overlay {
     position: fixed;
     opacity: 0;
